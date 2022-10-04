@@ -11,5 +11,6 @@
 
 
 (() => {
-
+    let name = prompt("Veillez entrer votre prénom");
+    alert(`Bonjour ${name ?? "Utilisateur"} !`);
 })();
