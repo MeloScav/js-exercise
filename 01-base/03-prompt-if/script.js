@@ -10,5 +10,18 @@
 // You will have time to focus on it later.
 
 (() => {
+    const questionMessage = "Voulez-vous du gâteau ?";
+    const questionPrompt = (message = questionMessage) => {
+        return prompt(message).toLowerCase();
+    }
+    
+    let question = questionPrompt();
 
+    if(question == "oui" || question == "yes"){
+        alert("Bravo ! Le gâteau, c'est la viiiee !!");
+    }
+    else {
+        alert("Du gâteau, ça ne se refuse pas !! Bourou !");
+        question = questionPrompt();
+    }
 })();
