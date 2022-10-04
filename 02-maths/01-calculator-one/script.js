@@ -10,5 +10,32 @@
 // You will have time to focus on it later.
 
 (() => {
+    const inputOp = document.querySelectorAll("input[id^='op-']");
+    const buttons = document.querySelectorAll(".actions button");
+
+    buttons.forEach(el => {
+        el.addEventListener("click", ()=> {
+          let btnId = el.id;
+
+          switch (btnId) {
+            case "addition":
+
+
+                break;
+            case "substraction":
+                console.log("sub -");
+                break;
+            case "multiplication":
+                console.log("mult .");
+                break;
+            case "division":
+                console.log("div /");
+                break;
+            default:
+                console.log("default");
+          }
+            
+        })
+    });
 
 })();
