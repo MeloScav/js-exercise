@@ -11,5 +11,23 @@
 
 
 (() => {
+    const question = (message) => {
+        let answer = "";
 
+        do {
+            answer = prompt(message);
+        } while (answer == "" || answer == null || answer == undefined);
+
+        return answer;
+    }
+
+    let confirmation = false;
+
+    do {
+        let userAge = question("Bonjour ! Quel âge avez-vous ?");
+        let userSex = question("Quel est votre sexe ?");
+        let userCountry = question("De quelle ville venez-vous ?");
+
+        confirmation = confirm(`Veuillez vérifier les informations suiventes : \n ${userAge} \n ${userSex} \n ${userCountry}`);
+    } while (confirmation == false);
 })();
