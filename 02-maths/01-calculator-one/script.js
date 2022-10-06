@@ -13,29 +13,60 @@
     const inputOp = document.querySelectorAll("input[id^='op-']");
     const buttons = document.querySelectorAll(".actions button");
 
-    buttons.forEach(el => {
-        el.addEventListener("click", ()=> {
-          let btnId = el.id;
+    const getInputValues = (inputs) => {
+        const values = [];
 
-          switch (btnId) {
+        inputs.forEach(input => {
+            let inputValue = input.value.trim();
+
+            if (inputValue !== "") {
+                values.push(input.value);
+            }
+        });
+
+        return values;
+    }
+    
+    const arrayNumberVerification = (arr) => {
+        return arr.every(el => !isNaN(el));
+    }
+
+    const calculate = (operation, numbers) => {
+        let operator = null;
+        let results = null;
+
+        switch (operation) {
             case "addition":
-
-
+                operator = "+";
                 break;
             case "substraction":
-                console.log("sub -");
+                operator = "-";
                 break;
             case "multiplication":
-                console.log("mult .");
+                operator = "*";
                 break;
             case "division":
-                console.log("div /");
+                operator = "/";
                 break;
             default:
-                console.log("default");
+                results = null;
           }
-            
+
+          if (arrayNumberVerification(numbers)) {
+            results = numbers.reduce((prev, curr) => eval(prev + operator + curr));
+          }
+
+          return results;
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            if(getInputValues(inputOp).length === inputOp.length && !isNaN(calculate(btn.id, getInputValues(inputOp))) && isFinite(calculate(btn.id, getInputValues(inputOp)))) {
+                console.log(calculate(btn.id, getInputValues(inputOp)));
+            } else {
+                console.log("L'opération est invalide.");
+            }
         })
     });
-
+    
 })();
