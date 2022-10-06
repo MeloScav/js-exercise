@@ -27,7 +27,7 @@
         return values;
     }
     
-    const arrayNumberVerification = (arr) => {
+    const onlyNumbersArr = (arr) => {
         return arr.every(el => !isNaN(el));
     }
 
@@ -52,7 +52,7 @@
                 results = null;
           }
 
-          if (arrayNumberVerification(numbers)) {
+          if (numbers.length > 0 && onlyNumbersArr(numbers)) {
             results = numbers.reduce((prev, curr) => eval(prev + operator + curr));
           }
 
@@ -61,11 +61,15 @@
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            if(getInputValues(inputOp).length === inputOp.length && !isNaN(calculate(btn.id, getInputValues(inputOp))) && isFinite(calculate(btn.id, getInputValues(inputOp)))) {
-                console.log(calculate(btn.id, getInputValues(inputOp)));
-            } else {
-                console.log("L'opération est invalide.");
-            }
+        const numbers = getInputValues(inputOp);
+        const results = calculate(btn.id, numbers);
+        let resultsMsg = "L'opération est invalide.";
+
+        if (numbers.length === inputOp.length && !isNaN(results) && isFinite(results)) {
+            resultsMsg = results;
+        }
+        
+        console.log(resultsMsg);
         })
     });
     
