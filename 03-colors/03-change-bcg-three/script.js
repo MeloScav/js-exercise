@@ -10,5 +10,23 @@
 // You will have time to focus on it later.
 
 (() => {
+    const btn = document.getElementById("run");
+
+    const getRandomColor = () => {
+        let code = "0123456789ABCDEF";
+        let hexColor = "#";
+        for(i=0; i<6; i++) {
+            hexColor += code[Math.floor(Math.random()*16)]
+        }
+        return hexColor;
+    }
+
+    const changeColor = (color) => {
+        document.body.style.backgroundColor = color;
+    }
+
+    btn.addEventListener("click", () => {
+        changeColor(getRandomColor());
+    })
 
 })();
