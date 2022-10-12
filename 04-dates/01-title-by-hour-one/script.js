@@ -10,5 +10,8 @@
 // You will have time to focus on it later.
 
 (() => {
+    const itemToChange = document.getElementById("target");
+    const currentHour = new Date().getHours();
 
+    itemToChange.innerText = currentHour < 18 ? "Bonjour" : "Bonsoir";
 })();
