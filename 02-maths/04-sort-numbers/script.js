@@ -10,5 +10,14 @@
 // You will have time to focus on it later.
 
 (() => {
+    const btn = document.getElementById("run");
+    const numbers = document.getElementById("numbers").value;
+    const numbersArray = numbers.split(",");
 
+    const sortInAscendingOrder = (nbrsArray) => {
+        let order = nbrsArray.sort((a, b) => a - b);
+        return order;
+    }
+
+    btn.addEventListener("click", () => console.log(sortInAscendingOrder(numbersArray)));
 })();
