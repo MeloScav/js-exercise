@@ -10,5 +10,30 @@
 // You will have time to focus on it later.
 
 (() => {
+    const btn = document.getElementById("run");
+
+    const factorization = (x) => {
+        let result = null;
+        if(x === 0) {
+            result = 1;
+        } else {
+           result = 1;
+           for(let i = 1; i <= x; i++) {
+                result *= i;
+           }
+        }
+        return result;
+    }
+
+    btn.addEventListener("click", () => {
+        const nbr = document.getElementById("number").value;
+        if(isNaN(nbr)) {
+            console.log("Numéro non valide.");
+        } else if (nbr < 0) {
+            console.log("Le numéro doit être positif.");
+        } else {
+            console.log(`La factorielle de ${nbr} est ${factorization(nbr)}`);
+        }
+    })
 
 })();
