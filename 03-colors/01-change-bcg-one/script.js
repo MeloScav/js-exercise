@@ -10,5 +10,16 @@
 // You will have time to focus on it later.
 
 (() => {
+    const buttons = document.querySelectorAll(".actions button");
+
+    const changeColor = (color) => {
+        document.body.style.backgroundColor = color;
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            changeColor(btn.id);
+        })
+    });
 
 })();
