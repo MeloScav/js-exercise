@@ -10,5 +10,19 @@
 // You will have time to focus on it later.
 
 (() => {
+    const btn = document.getElementById("run");
+
+    const getColorValue = () => {
+        const inputColor = document.getElementById("color").value;
+        return inputColor;
+    }
+
+    const changeColor = (color) => {
+        document.body.style.backgroundColor = color;
+    }
+
+    btn.addEventListener("click", () => {
+       changeColor(getColorValue());
+    })
 
 })();
