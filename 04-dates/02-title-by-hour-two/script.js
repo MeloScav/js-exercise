@@ -10,5 +10,10 @@
 // You will have time to focus on it later.
 
 (() => {
+    const itemToChange = document.getElementById("target");
+    const currentDate = new Date();
+    const dayTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 17, 30, 0).getTime();
+
+    itemToChange.innerText = currentDate.getTime() <= dayTime ? "Bonjour" : "Bonsoir";
 
 })();
