@@ -10,5 +10,15 @@
 // You will have time to focus on it later.
 
 (() => {
+    const calculateSquareOfEvenNumber = (firstNumber,endNumber) => {
+        let squareOfEvenNumber = "";
+        for(i=firstNumber; i<=endNumber; i++) {
+            if(i%2 == 0) {
+                squareOfEvenNumber += `Le carré de ${i} est ${i*i} \n`;
+            }
+        }
+        return squareOfEvenNumber;
+    }
 
+    document.getElementById("run").addEventListener("click", () => console.log(calculateSquareOfEvenNumber(1,21)));
 })();
