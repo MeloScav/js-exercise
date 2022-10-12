@@ -8,5 +8,4 @@ const addNumberArrayInArray = (array, newArray) => {
     return newNumberArray;
 }
 
-
-// console.log(`Le nouveau tableau constitué est ${addNumberArrayInArray(numberArray,pairNumber)}`);
+console.log(`Le nouveau tableau constitué est ${addNumberArrayInArray(numberArray,pairNumber)}`);
