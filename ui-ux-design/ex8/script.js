@@ -1,7 +1,7 @@
 const bankAccountInput = document.getElementById("bank-account");
 
 const isValidBankAccountSyntax = (bankAccountNumber) => {
-    bankAccountNumber = bankAccountNumber.value.split("-").join("");
+    bankAccountNumber = bankAccountNumber.value.replace(/\D/g, "");
 
     const first10Digits = Number(bankAccountNumber.substring(0, 10));
     const last2Digits = Number(bankAccountNumber.slice(-2));
