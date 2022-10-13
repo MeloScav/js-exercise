@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Exercice 8</title>
+</head>
+
+<body>
+
+    <main class="text-bg-dark d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-bg-light my-2 p-3 p-sm-4 p-md-5 rounded" style="width: 100%; max-width: 660px;">
+            <h1 class="text-center">
+                Exercice 8
+            </h1>
+            <h2 class="text-center lead">
+                Validation d’un compte bancaire
+            </h2>
+            <div class="pt-2 pt-sm-3">
+                <h3 class="h4">Explication de la validation d'un compte bancaire</h3>
+                <p>
+                    Pour vérifier ça,
+                    <b>
+                        le reste du résultat de la division des 10 premiers chiffres par 97 est égal au deux derniers.
+                    </b>
+                </p>
+                <h3 class="h6">
+                    Exemple :
+                </h3>
+                <p>
+                    compte bancaire: 340-1418146-44
+                </p>
+                <p>
+                    3401418146 % 97 = 44
+                </p>
+
+                <h3 class="h4">Validez la bonne structure d'un compte bancaire.</h3>
+                <p>Récupérez le compte bancaire ci-dessous et vérifiez, au clic, s'il est valide.</p>
+                <form action="#" method="post">
+                    <div class="field">
+                        <label for="bank-account" class="form-label">Compte bancaire</label>
+                        <input type="text" name="bank-account" id="bank-account" class="form-control"
+                            value="340-1418146-44" />
+                    </div>
+                    <div class="action mt-2">
+                        <button class="btn btn-primary mb-3" type="button" id="run">Lancer le script</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
