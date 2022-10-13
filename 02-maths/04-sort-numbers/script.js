@@ -12,12 +12,9 @@
 (() => {
     const btn = document.getElementById("run");
     const numbers = document.getElementById("numbers").value;
-    const numbersArray = numbers.split(",");
+    const numbersArray = numbers.split(", ").map(a => Number(a));
 
-    const sortInAscendingOrder = (nbrsArray) => {
-        let order = nbrsArray.sort((a, b) => a - b);
-        return order;
-    }
+    const numbersArrayAscending = [...numbersArray].sort((a, b) => a - b);
 
-    btn.addEventListener("click", () => console.log(sortInAscendingOrder(numbersArray)));
+    btn.addEventListener("click", () => console.log(numbersArrayAscending));
 })();
