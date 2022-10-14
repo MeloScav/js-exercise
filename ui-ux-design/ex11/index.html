@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Exercice 11</title>
+</head>
+
+<body>
+
+    <main class="text-bg-dark d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-bg-light my-2 p-3 p-sm-4 p-md-5 rounded" style="width: 100%; max-width: 660px;">
+            <h1 class="text-center">
+                Exercice 11
+            </h1>
+            <h2 class="text-center lead">
+                La tour de Hanoï
+            </h2>
+            <div class="pt-2 pt-sm-3">
+                <h3 class="h4">Explication</h3>
+                <p>
+                    La tour de Hanoï est un puzzle mathématique avec 3 barres ( A, B et C) et un nombre N de disques.
+                </p>
+                <p>
+                    L'objectif est de déplacer entièrement la pile de la barre A jusque la barre C en obéissant aux
+                    règles suivantes :
+                </p>
+                <ul>
+                    <li>
+                        Un seul disque peut être déplacé à la fois.
+                    </li>
+                    <li>
+                        Chaque déplacement consiste à prendre le disque supérieur d'une des piles et à le déplacer
+                        au-dessus
+                        d'une autre pile, c'est-à-dire qu'un disque ne peut être déplacé que s'il s'agit du disque le
+                        plus
+                        haut d'une pile.
+                    </li>
+                    <li>
+                        Aucun disque ne peut être placé sur un disque plus petit.
+                    </li>
+                </ul>
+
+                <h3 class="h4">Exercice</h3>
+                <p>
+                    Créez une fonction permettant l'entré d'un niveau (nombre de disques) ainsi que des différentes
+                    destinations (A, B et C) et lancez le script au clic sur le bouton.
+                </p>
+                <p>
+                    Pour le niveau de départ, utilisez le chiffre 4.
+                </p>
+                <img class="img-thumbnail" src="tour-hanoi.png" alt="Tour de Hanoï">
+                <div class="action mt-2">
+                    <button class="btn btn-primary" type="button" id="run">Résoudre</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
