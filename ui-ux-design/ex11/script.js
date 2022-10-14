@@ -1,14 +1,15 @@
-const btn = document.getElementById("run");
-const nbOfDisks = 4;
+const nbOfDisks = 3;
 
-const towerOfHanoi = (n, fromRod, toRod, auxRod) => {
+const towerOfHanoi = (n, fromRod, auxRod, toRod) => {
     if (n == 0) {
         return;
     }
 
-    towerOfHanoi(n - 1, fromRod, auxRod, toRod);
+    towerOfHanoi(n - 1, fromRod, toRod, auxRod);
     console.log(`Bouge le disque ${n} de la barre ${fromRod} à la barre ${toRod}.`);
-    towerOfHanoi(n - 1, auxRod, toRod, fromRod);
+    towerOfHanoi(n - 1, auxRod, fromRod, toRod);
 }
 
-towerOfHanoi(nbOfDisks, 'A', 'C', 'B');
+document.getElementById("run").addEventListener("click", () => {
+    towerOfHanoi(nbOfDisks, 'A', 'B', 'C');
+})
