@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Validation de formulaire
+    </h1>
+    <p>
+        S'assurer que le champs input contient une chaine de caractère de minimum 3 caractères et maximum 10 en real
+        time
+        Afficher un message d'erreur ou de succès suivant le resultat
+    </p>
+
+    <main class="container text-bg-light">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" />
+            <!-- <button class="btn btn-info" type="button">Valider</button> -->
+        </div>
+        <div id="message">
+            [message ici]
+        </div>
+    </main>
+
+    <script>
+        // const inputVerify = (input, min, max) => {
+        //     document.getElementById("errorMessage").innerText = input.length >= 3 && input.length <= 10 ? "Félicitation" : "Non correct";
+        // }
+
+        // document.querySelector("input").addEventListener("input", () => {
+        //     inputVerify(document.querySelector("input").value, 3, 10);
+        // })
+
+
+        const inputVerify = (input, min, max) => input.length >= 3 && input.length <= 10;
+        const message = document.getElementById("message");
+        const inputEl = document.querySelector("input");
+
+        inputEl.addEventListener("input", (e) =>
+            message.innerText = inputVerify(e.currentTarget.value, 3, 10) ? "Félicitation" : "Non correct");
+
+    </script>
+</body>
+
+</html>

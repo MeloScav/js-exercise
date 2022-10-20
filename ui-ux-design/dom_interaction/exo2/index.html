@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Ajouter une balise
+    </h1>
+    <p>
+        Ajouter une balise strong avec le contneu 'Lorem Ipsum' à l'intérieur de la div
+    </p>
+
+    <main class="container text-bg-light">
+        <div>J'ai envie d'une balise strong</div>
+        <button id="startBtn">start</button>
+    </main>
+
+    <script>
+        const appendElementToElement = (el, elToAdd, elText) => {
+            const createStrong = document.createElement(elToAdd);
+            const addStrongToDiv = document.querySelector(el).appendChild(createStrong);
+            addStrongToDiv.innerText = elText;
+        }
+
+        document.querySelector("#startBtn").addEventListener("click", () => appendElementToElement("div", "strong", "Lorem Ipsum"));
+
+    </script>
+</body>
+
+</html>

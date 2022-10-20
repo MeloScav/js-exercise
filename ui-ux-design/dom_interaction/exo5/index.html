@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Stop it !!!
+    </h1>
+    <p>
+        Ajouter un element div toutes les secondes contenant son numéro
+    </p>
+
+    <main class="container text-bg-light">
+        <div>1</div>
+        <div>2</div>
+    </main>
+
+    <script>
+        const addDivWithNumber = (parent, element) => {
+            const parentElement = document.querySelector(parent);
+            const createElement = document.createElement(element);
+            const addElement = parentElement.appendChild(createElement);
+
+            addElement.innerText = parentElement.children.length;
+        }
+
+        const addDivWithNumberInterval = setInterval(() => addDivWithNumber("main", "div"), 1000);
+        // clearInterval(addDivWithNumberInterval);
+
+    </script>
+</body>
+
+</html>

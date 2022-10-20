@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Inception
+    </h1>
+    <p>
+        Compter et mettre en rouge toutes les balises p du document
+    </p>
+
+    <main class="container text-bg-light">
+
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <p>Praesent imperdiet venenatis nisi ac placerat. Nunc eu pellentesque diam, nec lacinia nisi. Nulla
+                facilisi.</p>
+            Proin sit amet elementum elit
+            <div>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eu
+                ullamcorper purus.
+                <p>Donec aliquet lectus quis sodales euismod.</p>
+
+                <div>
+                    <p>Donec et turpis id metus aliquet facilisis.</p>
+                    <p>Quisque eu nunc interdum, elementum risus eget, suscipit est.</p>
+                    <p>Proin ut ipsum finibus, mollis quam quis, aliquam odio.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="message">
+            [resultat ici]
+        </div>
+    </main>
+
+    <script>
+        const phrases = document.querySelectorAll("p");
+
+        // phrases.forEach(phrase => phrase.style.color = "red");
+        const changeElColor = (element, color) => element.style.color = color;
+        phrases.forEach(phrase => changeElColor(phrase, "red"));
+
+        document.getElementById("message").innerText = "Le nombre de balise p est " + phrases.length;
+
+    </script>
+</body>
+
+</html>

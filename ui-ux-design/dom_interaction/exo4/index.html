@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Stop it !!!
+    </h1>
+    <p>
+        Ajouter un element div toutes les secondes
+    </p>
+
+    <main class="container text-bg-light">
+        <div>first !!</div>
+    </main>
+
+    <script>
+
+        const addElement = (parent, addAElement) => {
+            const parentElement = document.querySelector(parent);
+            const createElement = document.createElement(addAElement);
+
+            const addElement = parentElement.appendChild(createElement);
+            addElement.innerText = "Une nouvelle div";
+        }
+
+        const addElementInterval = setInterval(() => addElement(".container", "div"), 1000);
+
+        // clearInterval(addElementInterval);
+
+    </script>
+</body>
+
+</html>

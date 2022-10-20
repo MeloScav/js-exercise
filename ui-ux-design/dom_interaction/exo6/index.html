@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Magie !!
+    </h1>
+    <p>
+        Faire apparaitre le 2 ieme bloc de text uniquement après action de l'utilisateur
+    </p>
+
+    <main class="container text-bg-light">
+        <p>
+            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
+            assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
+            que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
+            soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
+            passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de
+            texte, comme Aldus PageMaker.
+        </p>
+        <p>
+            Donec dignissim dapibus sem, nec euismod nibh ultricies at. Sed laoreet tellus non orci lobortis viverra.
+            Suspendisse ut arcu ut metus scelerisque suscipit in sed odio. Praesent eget ultricies tellus, non aliquam
+            erat. Donec imperdiet est sed congue efficitur. Quisque mattis justo lectus, quis iaculis orci pellentesque
+            ut. Nam id auctor metus, at commodo libero. Duis aliquam volutpat tristique. In non finibus dui. Aenean
+            finibus nisl sapien, eget suscipit massa imperdiet a. Sed tempus et sem vitae sodales. Etiam iaculis, dui id
+            ultricies eleifend, eros ante varius arcu, at semper ante mauris sit amet felis. Etiam at mattis risus, a
+            pharetra metus. Cras in convallis massa. Aenean suscipit tincidunt metus id rutrum. Quisque mattis, tellus a
+            gravida sagittis, libero ex blandit magna, nec vulputate neque erat ac nibh.
+        </p>
+        <p>
+            Donec et turpis id metus aliquet facilisis. Quisque eu nunc interdum, elementum risus eget, suscipit est.
+            Aliquam molestie arcu sit amet nulla vehicula tincidunt. Proin ut ipsum finibus, mollis quam quis, aliquam
+            odio. Proin id massa sed diam volutpat feugiat id ac urna. Morbi hendrerit, diam in pharetra congue, elit
+            purus accumsan neque, ut tempor orci tortor sed turpis. Maecenas nunc sapien, egestas et tristique et,
+            consequat vel dui. Maecenas eget eros velit. Proin mollis sem ac lobortis dictum. Donec vitae cursus nibh.
+            Nulla hendrerit molestie gravida.
+        </p>
+        <p>
+            Proin porta nec risus tincidunt congue. Sed lorem eros, volutpat nec orci eget, efficitur sagittis magna.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus egestas nisi
+            id erat blandit ultricies. Vestibulum non ultrices est. Etiam purus urna, finibus sit amet eros quis,
+            volutpat facilisis tellus. Suspendisse in velit sed massa venenatis fringilla at vitae ante. Nullam id metus
+            laoreet, placerat nibh non, euismod urna. Aenean semper suscipit augue, et efficitur quam mollis vitae. Nunc
+            vehicula condimentum neque a rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis
+            accumsan nibh ante, et convallis ex lobortis id. Integer ut ligula tempus nibh volutpat bibendum. Proin nunc
+            lectus, sagittis sit amet rutrum non, vehicula ut erat. Morbi mollis, est sit amet lobortis semper, lectus
+            sapien accumsan eros, eu convallis sapien erat in nisi.
+        </p>
+        <p>
+            Nam in luctus lorem. Curabitur non nibh eget odio venenatis luctus. Integer id justo erat. Ut congue tellus
+            nec ligula laoreet ornare. Donec lobortis lectus in est luctus, quis pellentesque mauris rhoncus. Sed
+            fermentum enim libero, at luctus dolor malesuada a. Quisque commodo ornare risus et convallis. Donec non
+            enim ultrices, finibus nisl id, dapibus elit. Praesent ac bibendum mi, eget pellentesque arcu. Vestibulum
+            eget sem id nisl condimentum tempus vel eget dolor. Suspendisse viverra eros non enim dapibus mollis.
+            Vivamus at pulvinar nibh. Fusce vitae sapien vel massa gravida condimentum.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet venenatis nisi ac placerat. Nunc
+            eu pellentesque diam, nec lacinia nisi. Nulla facilisi. Proin sit amet elementum elit, vitae molestie
+            tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec
+            eu ullamcorper purus. Donec aliquet lectus quis sodales euismod. Donec non maximus ligula. Suspendisse
+            volutpat maximus malesuada. Donec felis dolor, auctor id lacus ac, consectetur sollicitudin urna.
+        </p>
+        <button id="start">start</button>
+    </main>
+
+    <script>
+        const phrases = document.querySelectorAll("main p");
+        phrases[1].style.display = "none";
+
+        const displayElement = (element) => element.style.display = "block";
+
+        document.getElementById("start").addEventListener("click", () => displayElement(phrases[1]));
+
+    </script>
+</body>
+
+</html>

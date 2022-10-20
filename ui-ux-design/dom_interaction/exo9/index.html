@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- CSS -->
+    <link href="../shared/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Ma calculatrice
+    </h1>
+    <p>
+        Effectuer l'addition dans 2 champs input et afficher le resultat
+    </p>
+
+    <main class="container text-bg-light">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control">
+            <span class="operator input-group-text">+</span>
+            <input type="text" class="form-control">
+            <button class="btn btn-info" type="button">=</button>
+        </div>
+
+        <div id="message">
+            [resultat ici]
+        </div>
+    </main>
+
+    <script>
+        const inputs = document.querySelectorAll("input");
+        const op = document.querySelector(".operator");
+        const message = document.getElementById("message");
+        const btn = document.querySelector(".btn");
+
+        const getInputValues = (inputs) => {
+            const values = [];
+
+            inputs.forEach(input => {
+                let inputValue = input.value.trim(); // remove space
+                if (inputValue !== "") {
+                    values.push(inputValue);
+                }
+            });
+
+            return values;
+        };
+
+        const onlyNumberArr = (arr) => {
+            return arr.every(el => !isNaN(el));
+        };
+
+        const calculate = (operation, numbers) => {
+            let operator = operation.innerText;
+            let result = null;
+
+            if (numbers.length > 0 && onlyNumberArr(numbers)) {
+                result = numbers.reduce((prev, curr) => eval(prev + operator + curr));
+            }
+
+            return result;
+        }
+
+        btn.addEventListener("click", () => {
+            const numbers = getInputValues(inputs);
+            const result = calculate(op, numbers);
+            let resultMessage = "L'opération est invalide.";
+
+            if (numbers.length === inputs.length && !isNaN(result) && isFinite(result) && result !== null) {
+                resultMessage = result;
+            }
+
+            message.innerText = resultMessage;
+        })
+
+    </script>
+</body>
+
+</html>
