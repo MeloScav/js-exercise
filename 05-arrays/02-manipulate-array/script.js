@@ -23,5 +23,12 @@
         "cerise",
     ];
 
+    document.getElementById("run").addEventListener("click", () => {
+        fruits.shift();
+        fruits.pop();
+        fruits.unshift("banane");
+        fruits.push("kiwi");
+        console.log(fruits);
+    })
 
 })();
