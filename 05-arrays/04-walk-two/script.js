@@ -25,4 +25,6 @@
         "cerise",
     ];
 
+    document.querySelector("#run").addEventListener("click", () => fruits.forEach(fruit => console.log(fruit)));
+
 })();
