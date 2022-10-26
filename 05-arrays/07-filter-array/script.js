@@ -88,4 +88,5 @@
         },
     ];
 
+    document.querySelector("#run").addEventListener("click", () => console.log(people.filter(person => person.age > 18)));
 })();
