@@ -88,4 +88,11 @@
         },
     ];
 
+    document.querySelector("#run").addEventListener("click", () => {
+        // people.forEach((person, index) => (person.lastname == "Dupont" && person.firstname == "Jean") && console.log(person.email, index));
+
+        // Ternary condition with one side
+        people.filter((el, i) => (el.lastname === "Dupont" && el.firstname === "Jean") && console.log(el.email, i));
+    })
+
 })();
