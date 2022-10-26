@@ -38,4 +38,6 @@
         },
     ];
 
+    document.querySelector("#run").addEventListener("click", () => people.forEach(person => console.log(person.lastname)));
+
 })();
