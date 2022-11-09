@@ -15,13 +15,70 @@
         </p>
 
         <main class="container text-bg-light">
-            
+            <form class="p-3" id="user-form">
+
+                <div class="row mb-3">
+                    <label for="userName" class="col-sm-2 col-form-label">User name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="userName" name="userName" required>
+                    </div>
+                  </div>
+
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control" id="inputPassword" name="password" required>
+                    </div>
+                  </div>
+
+                <div class="row mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                    <label class="form-check-label" for="rememberMe">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+            <div class="d-none" id="user-connected">
+                <h1 id="hello-user"></h1>
+                <button class="btn btn-primary" id="disconnect-btn">Disconnect</button>
+            </div>
         </main>
 
         <script>
-           // creer une function pour ajouter une div à mon contenu
+            const userName = getLocalStorageItem("userName");
+            const userForm = document.getElementById("user-form");
+            const userConnected = document.getElementById("user-connected");
+            const helloUser = document.getElementById("hello-user"); 
 
-           // trouver comment utiliser le setInterval
+            const getLocalStorageItem = (name) => localStorage.getItem(name) ?? null;
+            const setLocalStorageItem = (name, value) => localStorage.setItem(name, value);
+            const removeLocalStorageItem = (name) => localStorage.removeItem(name);
+
+            if(userName) {
+                userConnected.classList.toggle("d-none");
+                userForm.classList.toggle("d-none");
+                helloUser.innerText =`Bonjour ${userName}`;
+            }
+
+            document.querySelector("#user-form").addEventListener("submit", (e) => {
+                const formData =  Object.fromEntries(new FormData(e.target).entries());
+                console.log(formData);
+
+                if (formData.rememberMe && formData.userName.trim() !== "" && formData.password.trim() !== "") {
+                    setLocalStorageItem("userName", formData.userName);
+                }
+            });
+
+            document.getElementById("disconnect-btn").addEventListener("click", () => {
+                removeLocalStorageItem("userName")
+                window.location.reload();
+            });
+
         </script>
     </body>
 </html>
