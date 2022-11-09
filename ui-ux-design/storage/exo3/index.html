@@ -12,10 +12,39 @@
         </p>
 
         <main class="container text-bg-light">
-            <input type="text" />
+            <p id="form-message" style="display:none;"></p>
+            <form id="user-form">
+                <input type="text" name="username" />
+                <button type="submit">Valider</button>
+            </form>
+            <button class="remove-name">Supprimer le nom</button>
         </main>
 
         <script>
+            const userName = getLocalStorageItem("username");
+            const formMessage = document.getElementById("form-message");
+
+            const getLocalStorageItem = (name) => localStorage.getItem(name) ?? null;
+            const setLocalStorageItem = (name, value) => localStorage.setItem(name, value);
+            const removeLocalStorageItem = (name) => localStorage.removeItem(name);
+            
+            if(userName) {
+                formMessage.style.display = "initial";
+                formMessage.innerText =`Bonjour ${userName}`;
+            }
+
+            document.querySelector("#user-form").addEventListener("submit", (e) => {
+                const formData =  Object.fromEntries(new FormData(e.target).entries());
+
+                if (formData.username.trim() !== "") {
+                    setLocalStorageItem("username", formData.username);
+                }
+            });
+
+            document.querySelector(".remove-name").addEventListener("click", () =>{
+                removeLocalStorageItem("username");
+                window.location.reload();
+            });
            
         </script>
     </body>
