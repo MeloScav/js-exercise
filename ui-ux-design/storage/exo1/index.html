@@ -12,11 +12,75 @@
         </p>
 
         <main class="container text-bg-light">
-            <input type="text" />
+            <p id="form-message"></p>
+            <form id="user-form">
+                <input type="text" name="username" />
+                <button type="submit">Valider</button>
+            </form>
+            <button class="delete-cookies">Supprimer les cookies</button>
         </main>
 
         <script>
-           
+            const setCookie = (cookieName, value, days) => {
+                let expires = "";
+
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+
+                document.cookie = cookieName + "=" + (value || "")  + expires + "; path=/";
+            }
+
+            const getCookie = (cookieName) => {
+                const cookiesArray = document.cookie.split(';');
+                
+                const cookiesArrayEntries = new Map([
+                    ...cookiesArray.map(cookie => cookie.trim().split("="))
+                ]);
+
+                const cookiesObject = Object.fromEntries(cookiesArrayEntries);
+
+                return cookiesObject.hasOwnProperty(cookieName) ? cookiesObject[cookieName] : null;
+            }
+
+            const getAllCookies = () => {
+                const cookiesArray = document.cookie.split(';');
+                
+                const cookiesArrayEntries = new Map([
+                    ...cookiesArray.map(cookie => cookie.trim().split("="))
+                ]);
+
+                const cookiesObject = Object.fromEntries(cookiesArrayEntries);
+                const hasCookies = Object.keys(cookiesObject).length > 0;
+
+                return hasCookies ? cookiesObject : null;
+            }
+
+            const deleteCookie = (cookieName) => document.cookie = cookieName +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+            
+            const deleteAllCookies = () => Object.entries(getAllCookies()).map(([key]) => deleteCookie(key));
+            
+            const userName = getCookie("username");
+
+            document.getElementById("form-message").innerText = userName ? `Bonjour ${userName}` : "";
+            
+            // Add cookie
+            document.querySelector("#user-form").addEventListener("submit", (e) => {
+                const formData =  Object.fromEntries(new FormData(e.target).entries());
+                
+                if (formData.username.trim() !== "") {
+                    setCookie("username", formData.username)
+                }
+            })
+
+            // Delete cookies
+            document.querySelector(".delete-cookies").addEventListener("click", () => {
+                deleteAllCookies();
+                window.location.reload();
+            })
+
         </script>
     </body>
 </html>
