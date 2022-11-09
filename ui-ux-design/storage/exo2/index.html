@@ -12,10 +12,36 @@
         </p>
 
         <main class="container text-bg-light">
-            <input type="text" />
+            <p id="form-message"></p>
+            <form id="user-form">
+                <input type="text" name="username" />
+                <button type="submit">Valider</button>
+            </form>
+            <button class="remove-name">Supprimer le nom</button>
         </main>
 
         <script>
+
+            const getSessionStorageItem = (name) => sessionStorage.getItem(name) ?? null;
+            const setSessionStorageItem = (name, value) => sessionStorage.setItem(name, value);
+            const removeSessionStorageItem = (name) => sessionStorage.removeItem(name);
+
+            const userName = getSessionStorageItem("username");
+
+            document.getElementById("form-message").innerText = userName ? `Bonjour ${userName}` : "";
+
+            document.querySelector("#user-form").addEventListener("submit", (e) => {
+                const formData =  Object.fromEntries(new FormData(e.target).entries());
+
+                if (formData.username.trim() !== "") {
+                    setSessionStorageItem("username", formData.username);
+                }
+            });
+
+            document.querySelector(".remove-name").addEventListener("click", () =>{
+                removeSessionStorageItem("username");
+                window.location.reload();
+            });
            
         </script>
     </body>
